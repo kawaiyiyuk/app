@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular测试</title>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myapp" ng-controller="cont1">
+		<div ng-controller="cont2">
+			<p>{{greet.name}} Angular</p>
+			<button ng-click="al2()"> test1</button>
+		</div>
+
+		<div ng-controller="cont3">
+			<p>{{greet.name}} Angular</p>
+			<button ng-click="al3()">test2</button>
+			<button ng-click="al1()">通用</button>
+		</div>
+		
+		<div ng-controller="cont4">
+			<p>{{objs.test}}</p>
+		</div>
+		
+	</div>
+
+
+	<script>
+		var app = angular.module("myapp",[]);
+
+		app.controller("cont1",["$scope",function($scope){
+			
+			$scope.al1 = function(){
+				alert("通用");
+			};
+		}])	;
+
+		app.controller("cont2",["$scope",function($scope){
+			$scope.greet = {
+				name:'test1'
+			}
+			$scope.al2 = function(){
+			
+				alert("test1");
+			}
+		}])
+
+		app.controller("cont3",["$scope",function($scope){
+			$scope.greet = {
+				name:'test2'
+			}
+			$scope.al3 = function(){
+				alert("test2");
+			}
+		}])
+
+
+		app.controller("cont4",["$scope",function($scope){
+			$scope.objs = {
+				test:"这是我后添加的一段内容,目的是为了测试github的同步功能"
+			}
+		}])
+	</script>
+</body>
+</html>
