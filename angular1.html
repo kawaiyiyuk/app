@@ -20,7 +20,14 @@
 		
 		<div ng-controller="cont4">
 			<p>{{objs.test}}</p>
+			<p>{{objs.test2}}</p>
+			<p>{{objs.test3}}</p>
 		</div>
+
+		<input type="text" ng-model="abc">
+		<p>{{abc}}</p>
+
+
 		
 	</div>
 
@@ -57,7 +64,9 @@
 
 		app.controller("cont4",["$scope",function($scope){
 			$scope.objs = {
-				test:"这是我后添加的一段内容,目的是为了测试github的同步功能"
+				test:"这是我后添加的一段内容,目的是为了测试github的同步功能",
+				test2:"这是第二次修改的内容,看看会有什么变化",
+				test3:"这是第三次修改的内容"
 			}
 		}])
 	</script>
