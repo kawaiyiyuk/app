@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ngshow</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+    <link rel="stylesheet" href="css1.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="js1.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <button class="btn btn-default" ng-click="togle()">ng-hide</button>
+        <ul ng-hide="meanStat.hide">
+            <li>abc</li>
+            <li>def</li>
+            <li>ghi</li>
+        </ul>
+    </div>
+    <div ng-controller="myctrl2">
+        <button class="btn btn-success" ng-click="togle()">
+          ng-show
+       </button>
+
+        <ul ng-show="meanstat.show">
+            <li>abc</li>
+            <li>def</li>
+            <li>ghi</li>
+        </ul>
+    </div>
+</body>
+
+</html>

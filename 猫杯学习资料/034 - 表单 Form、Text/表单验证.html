@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>034 - 表单 Form、Text</title>
+	<script src="https://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.0/angular.js"></script>
+	<script src="index.js"></script>
+	<link href="http://cdn.bootcss.com/bootstrap/3.1.0/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+	<div ng-app="myapp" class="container" style="margin:100px">
+		<form name="myform" action="" ng-controller="firstController" class="container form-horizontal">
+			<div class="form-group" ng-class="{'has-error':myform.username.$invalid && myform.username.$dirty}">
+				<label class="col-sm-2">用户名</label>
+				<div class="col-sm-10">
+					<input type="text" autocomplete="off" name="username" ng-pattern="/^[a-zA-Z]{1}/" ng-required="true" ng-minlength="5" ng-maxlength="10"
+									ng-model="data.user" class="form-control" placeholder="请填写用户名">
+					<div ng-show="myform.username.$error.maxlength" class="alert alert-danger help-block">
+						用户名不能超过10位
+					</div>
+					<div ng-show="myform.username.$error.minlength" class="alert alert-danger help-block">
+						用户名不能少于5位
+					</div>
+					<div ng-show="myform.username.$error.pattern" class="alert alert-danger help-block">
+						用户名必须字母开头
+					</div>
+				</div>
+			</div>
+			<div class="form-group" ng-class="{'has-error':myform.password.$invalid && myform.password.$dirty}">
+				<label class="col-sm-2">密码</label>
+				<div class="col-sm-10">
+					<input type="password" autocomplete="off" name="password" ng-required="true" ng-minlength="5" ng-model="data.password" class="form-control"
+									placeholder="请填写密码">
+					<div ng-show="myform.password.$error.minlength" class="alert alert-danger help-block">
+						密码最少不能少于5位
+					</div>
+				</div>
+			</div>
+			<div class="form-group" ng-class="{'has-error':myform.passwordcon.$invalid && myform.passwordcon.$dirty}">
+				<label class="col-sm-2" for="exampleInputEmail1">再次输入密码</label>
+				<div class="col-sm-10">
+					<input type="password" autocomplete="off" name="passwordcon" ng-required="true" ng-model="data.passwordcon" class="form-control"
+									placeholder="再次输入密码">
+					<div ng-show=" myform.password.$dirty && data.password !== data.passwordcon" class="alert alert-danger help-block">
+						两次密码不一样
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="form-group" ng-class="{'has-error':myform.passwordcon.$invalid && myform.passwordcon.$dirty}">
+				<label class="col-sm-2" for="exampleInputEmail1">再次输入密码</label>
+				<div class="col-sm-10">
+					<input type="password" autocomplete="off" name="passwordcon" ng-required="true" ng-model="data.passwordcon" class="form-control"
+									placeholder="再次输入密码">
+					<div ng-show=" myform.password.$dirty && data.password !== data.passwordcon" class="alert alert-danger help-block">
+						两次密码不一样
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>多个控制器内的数据共存</title>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="index.js"></script>
+</head>
+
+<body>
+	<div ng-app="myapp">
+		<div ng-controller = "firstController">
+			<!--格式化成数字的格式,参数表示保留几位小数点-->
+			<p>{{1234567|number}}</p>
+			<p>{{1234.5678|number:3}}</p>
+			<!--格式化成货币的格式，参数表示货币符号-->
+			<p>{{999999 | currency}}</p>
+			<p>{{999999 | currency:"￥"}}</p>
+			<p>{{999999 | currency:"RBM:"}}</p>
+			<!--格式化成日期的格式，日期格式有很多常用的有以下几个-->
+
+			<p>
+			综合的时间样式	{{today | date :"y-M-d HH:mm:ss" }}
+
+			</p>
+			<p>
+				<!--year:2016-->
+				year:{{today | date :"y"}} <br>
+				<!--year:16-->
+				year:{{today | date :"yy"}}<br>
+				<!--year:2016-->
+				year:{{today | date :"yyyy"}}
+			</p>
+
+			<p>
+				<!--month :12 -->
+				month :{{today | date :"M"}} <br>
+				<!--month :12 -->
+				month :{{today | date :"MM"}} <br>
+				<!--month :Dec -->
+				month :{{today | date :"MMM"}} <br>
+				<!--month :December -->
+				month :{{today | date :"MMMM"}} <br>
+			</p>
+
+			<p>
+				<!--month :15 -->
+				day :{{today | date :"d"}} <br>
+				<!--month :15 -->
+				day :{{today | date :"dd"}} <br>
+				<!--month :Thu  -->
+				day in week :{{today | date :"EEE"}} <br>
+				<!--month :Thursday  -->
+				day in week :{{today | date :"EEEE"}} <br>
+			</p>
+			<p>
+				<!--hour :2  -->
+				12 in hour :{{today | date :"h"}} <br>
+				<!--hour :02  -->
+				12 in hour :{{today | date :"hh"}} <br>
+				<!--hour :14   -->
+				24 in hour :{{today | date :"H"}} <br>
+				<!--hour :14   -->
+				24 in hour :{{today | date :"HH"}} <br>
+			</p>
+
+			<p>
+				<!--minute :17   -->
+				minute :{{today | date :"m"}} <br>
+				<!--minute :17   -->
+				minute :{{today | date :"mm"}} <br>
+			</p>
+			<p>
+				<!--second :36   -->
+				second :{{today | date :"s"}} <br>
+				<!--second :36   -->
+				second :{{today | date :"ss"}} <br>
+			</p>
+
+			
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngclass</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+    <link rel="stylesheet" href="css1.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="css1.js"></script>
+</head>
+<body ng-app="myapp">
+   <div ng-controller="myctrl">
+       <div ng-class="{error:imerror,warning:imwarning}">{{testMassage}}</div>
+       <!--表达式内的参数可以任意指定 第一个为当前元素的class值，也就是当值为此时，css文件应该对应的，这个例子就是说后台对应一个.error的样式，
+        第二个参数是js文件内定义的值，也就是$scope的一个属性，比如此例子就是说JS内有一个$scope.imwarning的属性，这个属性为布尔值（true或者false）
+       -->
+       <button class="btn btn-default" ng-click="showError()">Error</button>
+       <button class="btn btn-default" ng-click="showWarning()">Warning</button>
+   </div>
+   
+</body>
+</html>

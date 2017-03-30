@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更改css样式</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+    <link rel="stylesheet" href="css/css1.css">
+    <script src="js\css1.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+    <div class="text-{{color}}">
+         通过更改数据的变化来更改css的样式
+    </div>
+
+    <button ng-click="setGreen()">点击我</button>
+   
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>020 - 自定义过滤器、$controllerProvider使用</title>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<div ng-app="myapp" ng-controller="firstController">
+		{{data}}
+		<div mydir transfer="data">
+
+		</div>
+		
+	</div>
+	<script>
+	
+		var app  = angular.module('myapp',[]);
+		app.service('Data',function(){
+			return [
+				{
+					name:'张三',
+					age:20,
+					city:'北京'
+				},
+				{
+					name:'李四',
+					age:30,
+					city:'上海'
+				}
+			]
+		});
+		app.controller('firstController',['$scope','Data',function($scope,Data){
+			$scope.data = Data;
+		}]);
+
+		app.directive('mydir',function(){
+			return {
+				restrict:'EA',
+				templateUrl:'tlp/tlp1.html',
+				controller:function($scope){
+					$scope.data = $scope.n
+				},
+				/*将$scope.data 赋值为$scope.n 原本$scope.data是undefined
+				这步不需要也可以，可以直接用$scope.n的值m,加上这个以后就是相当于跟外面名为data的属性共通了，
+				就是说虽然名字是一个名字，值是一样的值，但是和外面的data并不在一个作用域当中，所以呢也就无法污染外部
+				*/
+				scope:{
+					n:'=transfer'
+				},
+				/* transfer先出去找data这个属性，并得到值，在html页面实现的这个过程，这个属性是个全局属性,
+				通过这种方法可以拿到外部data或者任意其他属性的值，拿到值后，相当于本地的作用域上有一个n的属性，而这个
+				n的值就是刚才transfer出去找到的data的值
+				这个n是隔离作用域里的属性，也就是本地的属性，只限于本地使用，只限于该隔离作用域使用*/
+				replace:true
+			}
+		})
+	</script>
+	<!--<div ng-app="myapp" ng-init="myProperty='你特么可折腾死老子了'" ng-controller="myctrl">
+		
+		隔离作用域:{{myProperty}} <br>
+		<div mydirective></div>
+		<div second-directive item="myProperty" ></div>
+	</div>
+	<script>
+		var app = angular.module('myapp',[]);
+		app.directive('mydirective',function(){
+			return {
+				restrict:'EA',
+				template:'自定义指令 :{{myProperty}}',
+				scope:false
+			}
+		});
+		app.directive('secondDirective',function(){
+			return {
+				restrict:'EA',
+				template:'自定义指令 :{{myProperty}}',
+				
+				scope:{
+					myProperty : '=item'
+				}
+			}
+		});
+		app.controller('myctrl',['$scope',function($scope){
+
+		}])
+
+	</script>-->
+</body>
+
+</html>

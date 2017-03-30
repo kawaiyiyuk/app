@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>练习文件</title>
+	<script src="https://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.0/angular.js"></script>
+	<script src="index.js"></script>
+	<link href="http://cdn.bootcss.com/bootstrap/3.1.0/css/bootstrap.css" rel="stylesheet">
+
+
+	<!--<script>
+		var app = angular.module('myapp',[]);
+		app.controller('firstController',['$scope',function($scope){
+
+		}]);
+		app.directive('mydir',function(){
+			return {
+				restrict:'EA',
+				template:'<span>我是模块内容</span> <span ng-transclude></span>',
+				transclude:true
+			}
+			/*这里的<span ng-transclude></span>相当于一个占位符，就是把原来元素的内容通过占位符保留了下来
+			占位符在什么位置，原来元素的内容就在什么位置*/
+		})
+	</script>-->
+	<script>
+		var app = angular.module('myapp',[]);
+		app.controller('fristController',['$scope',function($scope){
+			$scope.show = false;
+		}]);
+		app.directive('showmore',function(){
+			return {
+				restrict:'EA',
+				templateUrl:'tlp.html',
+				transclude:'true'
+			}
+		})
+	</script>
+
+	<style>
+		.more{
+			width: 800px; height: 200px; line-height: 2; overflow: hidden;
+		}
+		.more2{
+			width: 800px; line-height: 2; overflow: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<!--<div ng-app="myapp" ng-controller="firstController">
+
+	</div>-->
+	<div ng-app="myapp" ng-controlelr = "fristController">
+		<div showmore>
+
+			这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容
+			这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容
+			这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容
+			这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容这里面原来有大段的文字内容
+		</div>
+	</div>
+
+</body>
+
+</html>

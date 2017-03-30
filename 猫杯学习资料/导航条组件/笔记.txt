@@ -1,0 +1,10 @@
+什么是angualr过滤器
+
+是用于对数据格式化，或者筛选的函数，可以直接在模板中通过一种语法使用
+
+{{expression | filter}}
+{{expression | filter1 |filter2}}
+{{expression | filter1:param,...}}
+
+
+测试

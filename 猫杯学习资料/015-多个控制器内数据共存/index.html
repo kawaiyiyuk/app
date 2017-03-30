@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>多个控制器内的数据共存</title>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="index.js"></script>
+</head>
+
+<body>
+	<div ng-app="myapp">
+		<div ng-controller="firstController">
+			fiist:<input type="text" ng-model="name">
+			<p>firstname:{{name}}</p><br> 共享: <input type="text" model="Data.message">
+			<p>共享的数据:{{Data.message}}</p>
+		</div>
+		<br>
+		<div ng-controller="secondController">
+			second<input type="text" ng-model="name2">
+			<p>secondname{{name2}}</p><br> 共享: <input type="text" model="Data.message">
+			<p>共享的数据:{{Data.message}}</p>
+		</div>
+	</div>
+
+</body>
+
+</html>

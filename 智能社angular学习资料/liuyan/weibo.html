@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+    <script src="app.js"></script>
+
+</head>
+
+<body ng-app="myapp">
+    <div class="container" ng-controller="firstController">
+        <div class="text">
+            <textarea class="form-control" rows="3" ng-model = "textInput"></textarea>
+            <div class=" enter">
+                <span>(可按 Enter 回复)</span>
+                <button class="btn btn-primary" ng-click = sublitMsg()>提交评论</button>
+            </div>
+        </div>
+        <div class="panel content">
+            <div class="panel-heading">
+                <h5 class="text-center">暂无留言</h5>
+            </div>
+            <div class="panel-body" ng-repeat="item in contents">
+                <div class="con">
+                    <p class="txt">{{item.content}}</p>
+                    <div class="but">
+                        <div class="but-left">
+                            <span> {{item.time *1000| date:"yyyy-MM-dd HH:mm:ss"}}</span>
+                            <!--注意这里有个坑，后台传过来的时间戳都是以秒为单位，而js是以毫秒为单位
+                                也就是数据差1000倍 如果不*1000那么会显示1970年什么什么的
+                            -->
+                        </div>
+                        <div class="but-right pull-right">
+                            <p><span class="heand-up"></span>{{item.acc}}</p>
+                            <p><span class="heand-down"></span>{{item.ref}}</p>
+                            <p><span class="del"></span>删除</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>017 - 过滤器 limitTo、lowercase、uppercase 、filter 、orderBy、json</title>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="index.js"></script>
+	<style>
+		.active{
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container" ng-app="myapp">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search" ng-model="search.name">
+						</div>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<div class="div" ng-controller="myctrl">
+			<table class="table">
+				<thead>
+					<tr>
+						<th ng-click = "changeOrder('id')" ng-class="{dropup:order === ''}">
+							产品编号
+							<span ng-class="{active:orderType==='id'}" class="caret"></span>
+						</th>
+						<th  ng-click = "changeOrder('name')" ng-class="{dropup:order === ''}">
+							产品名称
+							<span ng-class="{active:orderType==='name'}"  class="caret"></span>
+						</th>
+						<th  ng-click = "changeOrder('price')" ng-class="{dropup:order === ''}">
+							产品单价
+							<span ng-class="{active:orderType==='price'}"  class="caret"></span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="apple in proct | filter:search |orderBy:order + orderType ">
+						<td>
+							{{apple.id}}
+						</td>
+						<td>
+							{{apple.name}}
+						</td>
+						<td>
+							{{apple.price | currency:"(Rmb)"}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html> 

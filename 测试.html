@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试用</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div class="container" ng-controller="myctrl">
+        数量: <input type="text" ng-model = "apple.num"><br> 
+        价格: <input type="text" ng-model = "apple.pri"> <br>
+        商品总价 :{{apple.both()}} <br>
+        邮费:{{apple.mai}}
+    </div>
+    <script>
+       var app = angular.module("myapp",[]);
+
+       app.controller("myctrl",["$scope",function($scope){
+           $scope.apple = {
+               num:1,
+               pri:10,
+               both:function(){
+                   return $scope.apple.num*$scope.apple.pri
+               },
+               mai:20
+           } 
+
+           $scope.$watch("apple.both()",function(newvalue,oldvalue){
+               if(newvalue >=500){
+                   $scope.apple.mai = 0;
+               }
+           },true)
+       }])
+    </script>
+</body>
+
+</html>

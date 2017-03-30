@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>020 - 自定义过滤器、$controllerProvider使用</title>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"></script>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="index.js"></script>
+	<style>
+		
+	</style>
+</head>
+
+<body>
+	<div ng-app="myapp" ng-controller="firstController">
+		<ul ng-repeat = "user in date | filterAge">
+			<li>{{user.name}}</li>
+			<li>{{user.age}}</li>
+			<li>{{user.city}}</li>
+		</ul>
+
+	</div>
+</body>
+
+</html>
